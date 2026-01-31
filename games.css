@@ -1,0 +1,632 @@
+@font-face {
+    font-family: "TTNorms";
+    src: url("./fonts/TTNorms-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "subtitle";
+    text-decoration: none;
+}
+
+img {
+    display: block;
+}
+
+body {
+    background: var(--fon);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.games {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.titles {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.subtitle {
+    font-family: "TTNorms";
+    color: var(--header);
+    font-size: 34px;
+}
+
+.title {
+    font-family: "games";
+    color: var(--header);
+    font-size: 80px;
+}
+
+.global-percent {
+    font-family: "games";
+    color: var(--header);
+    font-size: 80px;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.btn {
+    color: var(--textalt);
+    font-size: 40px;
+    font-family: "games";
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: var(--text);
+}
+
+.btn.active {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+
+
+
+main {
+    padding: 20px 10px 40px;
+}
+
+.page {
+    display: none;
+    gap: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.page.active {
+    display: flex;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--textalt);
+    border-radius: 5vh;
+    padding: 10px;
+    overflow: hidden;
+    gap: 5px;
+}
+
+.card-header {
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5vh;
+}
+
+.card-header.sto {
+    background: var(--text);
+}
+
+.card-title,
+.card-percent {
+    font-family: "title";
+    font-size: 40px;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+.card-title.sto,
+.card-percent.sto {
+    color: var(--texthover);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.card-content.hidden {
+    display: none;
+}
+
+/* Блоки переключений */
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.block-header {
+    display: grid;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5vh;
+}
+
+.block-header.sto {
+    background: var(--text);
+}
+
+.bh1 {
+    grid-template-columns: 2fr 1fr;
+}
+
+.bh2 {
+    grid-template-columns: 70px 2fr 1fr;
+}
+
+.block-title {
+    font-size: 26px;
+    color: var(--text);
+}
+
+.block-title.sto {
+    color: var(--texthover);
+}
+
+.block-percent {
+    font-size: 20px;
+    color: var(--text);
+    text-align: right;
+}
+
+.block-percent.sto {
+    color: var(--texthover);
+}
+
+.block-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.block-content.hidden {
+    display: none;
+}
+
+hr {
+    border: none;
+    border: 2px solid var(--text);
+    border-radius: 100%;
+    margin: 5px 10px;
+}
+
+/* Итемы */
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item-title {
+    font-size: 20px;
+    padding-left: 20px;
+    color: var(--textalt);
+}
+
+.item {
+    display: grid;
+    align-items: center;
+    padding: 0 5px;
+    min-height: 40px;
+    background: var(--rows);
+    border-radius: 5vh;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.it1 {
+    grid-template-columns: 30px 30px 1fr 1fr;
+}
+
+.it2 {
+    grid-template-columns: 30px 30px 2fr 1fr;
+}
+
+
+
+/* Пункты */
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    justify-self: center;
+    background: var(--rows);
+}
+
+.checkbox.checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    width: 10px;
+    height: 16px;
+    border: solid var(--texthover);
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox.checked {
+    border: none;
+    background: var(--text);
+}
+
+.icon {
+    width: 30px;
+    justify-self: center;
+}
+
+.text {
+    color: var(--text);
+    font-size: 20px;
+    justify-self: left;
+}
+
+.subtext {
+    color: var(--text);
+    font-size: 16px;
+    text-align: center;
+}
+
+.number {
+    font-family: "TTNorms";
+    color: var(--text);
+    font-size: 30px;
+    justify-self: center;
+}
+
+.img {
+    height: 50px;
+    width: 90px;
+    border: 1px solid var(--text);
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px 0;
+    justify-self: center;
+}
+
+
+
+/* Дополнительно */
+/* Ховер блока */
+.block-header:hover {
+    background: var(--text);
+}
+
+.block-header:hover .block-title,
+.block-header:hover .block-percent {
+    color: var(--texthover);
+}
+
+/* Ховер итема */
+.item:hover {
+    background: var(--text);
+}
+
+.item:hover .text,
+.item:hover .subtext,
+.item:hover .number {
+    color: var(--texthover);
+}
+
+/* Итемы когда чекбокс ативен */
+.checkbox.checked~.icon {
+    opacity: 0.5;
+    width: 20px;
+}
+
+.checkbox.checked~.number {
+    text-decoration: line-through;
+    color: var(--textalt);
+    font-size: 20px;
+    opacity: 0.5;
+}
+
+.checkbox.checked~.text {
+    text-decoration: line-through;
+    color: var(--textalt);
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.checkbox.checked~.subtext {
+    text-decoration: line-through;
+    color: var(--textalt);
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.checkbox.checked~.img {
+    display: none;
+}
+
+/* Ховер итема когда чекбокс ативен */
+.item:hover:has(.checkbox.checked) .icon,
+.item:hover:has(.checkbox.checked) .number,
+.item:hover:has(.checkbox.checked) .text,
+.item:hover:has(.checkbox.checked) .subtext {
+    color: var(--texthover);
+    opacity: 1;
+}
+
+
+
+
+
+/* Для картинок на весь экран */
+.fullscreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.fs-wrap {
+    overflow: hidden;
+    border: 1px solid var(--text);
+    border-radius: 5vh;
+}
+
+.fs-map {
+    position: relative;
+    transform-origin: 0 0;
+}
+
+.fs-img {
+    height: 80vh;
+    user-select: none;
+    touch-action: none;
+}
+
+.fs-lineX {
+    position: absolute;
+    background: var(--text);
+    pointer-events: none;
+    width: 2px; 
+    height: 100%;
+    top: 0;
+    transform: translate(-50%, 0%);
+}
+
+.fs-lineY {
+    position: absolute;
+    background: var(--text);
+    pointer-events: none;
+    height: 2px; 
+    width: 100%;
+    left: 0;
+    transform: translate(0, 50%);
+}
+
+.fs-marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    transform: translate(-50%, 50%);
+}
+
+.fs-marker:hover {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background: var(--text);
+    border: 1px solid var(--fon);
+}
+
+.fs-popup {
+    position: fixed;
+    top: 5vh;
+    right: 5vh;
+    height: auto;
+    width: 500px;
+    border-radius: 5vh;
+    border: 1px solid var(--text);
+    cursor: pointer;
+    overflow: hidden;
+    background: var(--fon);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.fs-popupimg {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.fs-cb {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.fs-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    justify-self: center;
+    background: var(--rows);
+}
+
+.fs-text {
+    color: var(--text);
+    font-size: 30px;
+    text-align: center;
+    align-content: center;
+    height: 40px;
+}
+
+
+
+
+
+
+.map {
+    position: relative;
+    transform-origin: 0 0;
+}
+
+.map-map {
+    width: 100%;
+    border-radius: 5vh;
+    filter: brightness(80%);
+}
+
+.map-item {
+    position: absolute;  
+}
+
+.map-img {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    border: 1px solid var(--fon);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 999;
+}
+
+.map-img:hover {
+    width: 15px;
+    height: 15px;
+}
+
+.checkbox.checked~.map-img {
+    opacity: 0.3;
+}
+
+.checkbox.checked~.map-img:hover {
+    opacity: 1;
+}
+
+.m1 {
+    background: #f700ff;
+}
+
+.m2 {
+    background: #d9ff00;
+}
+
+.map-item > .checkbox {
+    display: none;
+}
+
+.map-popup {
+    display: none;
+    position: fixed;
+    top: 5vh;
+    right: 5vh;
+    height: auto;
+    width: 500px;
+    border-radius: 5vh;
+    border: 1px solid var(--text);
+    cursor: pointer;
+    overflow: hidden;
+    background: var(--fon);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.map-popupimg {
+    height: 100%;
+    width: 100%;
+}
+
+.map-cb {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    justify-self: center;
+    background: var(--rows);
+}
+
+.map-checkbox.checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    width: 10px;
+    height: 16px;
+    border: solid var(--texthover);
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+.map-checkbox.checked {
+    border: none;
+    background: var(--text);
+}
+
+.map-text {
+    color: var(--text);
+    font-size: 30px;
+    text-align: center;
+    align-content: center;
+}
